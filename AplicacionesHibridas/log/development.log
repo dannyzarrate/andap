@@ -199,3 +199,258 @@ Processing by PostsController#new as HTML
 Completed 200 OK in 222ms (Views: 190.9ms | ActiveRecord: 1.0ms)
 
 
+  [1m[35m (109.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (156.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3465197453660230470)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20180815013044)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (109.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "body" text, "author" character varying, "publication_date" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180815013044"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (15.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-08-23 23:51:30.839564"], ["updated_at", "2018-08-23 23:51:30.839564"]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (15.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3465197453660230470)[0m
+  [1m[35m (15.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3465197453660230470)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImages (20180824000010)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (117.8ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "description" character varying, "likes_counter" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180824000010"]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(3465197453660230470)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-08-23 19:10:38 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 12951ms (Views: 12924.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/ew" for 127.0.0.1 at 2018-08-23 21:08:12 -0500
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"ew"}
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 277ms (ActiveRecord: 120.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Image with 'id'=ew):
+  
+app/controllers/images_controller.rb:47:in `set_image'
+Started GET "/images/new" for 127.0.0.1 at 2018-08-23 21:08:29 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (20.0ms)
+  Rendered images/new.html.erb within layouts/application (42.0ms)
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @image do |f| %>
+    2:     <%= f.label 'Descripción' %> <br>
+    3:     <%= f.text_field :description %> <br>
+    4: 
+  
+app/views/images/_form.html.erb:1:in `_app_views_images__form_html_erb__172053087_103569252'
+app/views/images/new.html.erb:2:in `_app_views_images_new_html_erb___52707086_103642416'
+Started GET "/image/new" for 127.0.0.1 at 2018-08-23 21:11:35 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/image/new"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `call'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/images/new" for 127.0.0.1 at 2018-08-23 21:11:45 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (18.0ms)
+  Rendered images/new.html.erb within layouts/application (38.4ms)
+Completed 500 Internal Server Error in 113ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @image do |f| %>
+    2:     <%= f.label 'Descripción' %> <br>
+    3:     <%= f.text_field :description %> <br>
+    4: 
+  
+app/views/images/_form.html.erb:1:in `_app_views_images__form_html_erb__172053087_85260972'
+app/views/images/new.html.erb:2:in `_app_views_images_new_html_erb___52707086_85492128'
+Started GET "/images/new" for 127.0.0.1 at 2018-08-23 21:14:35 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (22.0ms)
+  Rendered images/new.html.erb within layouts/application (46.0ms)
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @image do |f| %>
+    2:     <%= f.label 'Descripción' %> <br>
+    3:     <%= f.text_field :description %> <br>
+    4: 
+  
+app/views/images/_form.html.erb:1:in `_app_views_images__form_html_erb__172053087_84038652'
+app/views/images/new.html.erb:2:in `_app_views_images_new_html_erb___52707086_83764080'
+Started GET "/images/new" for 127.0.0.1 at 2018-08-23 21:14:58 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (19.0ms)
+  Rendered images/new.html.erb within layouts/application (38.0ms)
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @image do |f|%>
+    2:     <%= f.label 'Descripción' %> <br>
+    3:     <%= f.text_field :description %> <br>
+    4: 
+  
+app/views/images/_form.html.erb:1:in `_app_views_images__form_html_erb__172053087_89842596'
+app/views/images/new.html.erb:2:in `_app_views_images_new_html_erb___52707086_90221064'
+Started GET "/images/new" for 127.0.0.1 at 2018-08-23 21:15:42 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (19.7ms)
+  Rendered images/new.html.erb within layouts/application (37.9ms)
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @image do |f|%>
+    2:     <%= f.label 'Descripción' %> <br>
+    3:     <%= f.text_field :description %> <br>
+    4: 
+  
+app/views/images/_form.html.erb:1:in `_app_views_images__form_html_erb__172053087_55151196'
+app/views/images/new.html.erb:2:in `_app_views_images_new_html_erb___52707086_96514260'
+Started GET "/images/new" for 127.0.0.1 at 2018-08-23 21:17:24 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (19.0ms)
+  Rendered images/new.html.erb within layouts/application (37.0ms)
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @images do |f| %>
+    2:     <%= f.label 'Descripción' %> <br>
+    3:     <%= f.text_field :description %> <br>
+    4: 
+  
+app/views/images/_form.html.erb:1:in `_app_views_images__form_html_erb__172053087_107393844'
+app/views/images/new.html.erb:2:in `_app_views_images_new_html_erb___52707086_106781064'
+Started GET "/images/new" for 127.0.0.1 at 2018-08-23 21:20:03 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (45.0ms)
+  Rendered images/new.html.erb within layouts/application (68.0ms)
+Completed 200 OK in 400ms (Views: 362.2ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-08-23 21:21:58 -0500
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3bL/gVGed5CYmp9dIDctnbyRm7cGhM3km9XMxPsCtBn9y3MxL9iJx1QF5XorWU2Hd1ha69kEW4swea/X+H39Yw==", "image"=>{"description"=>"añkhflkmASDLMKF"}, "commit"=>"Enviar"}
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (15.0ms)[0m  [1m[32mINSERT INTO "images" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "añkhflkmASDLMKF"], ["created_at", "2018-08-24 02:21:58.283188"], ["updated_at", "2018-08-24 02:21:58.283188"]]
+  [1m[35m (39.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/images/1
+Completed 302 Found in 62ms (ActiveRecord: 54.0ms)
+
+
+Started GET "/images/1" for 127.0.0.1 at 2018-08-23 21:21:58 -0500
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering images/show.html.erb within layouts/application
+  Rendered images/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 206ms (Views: 149.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/" for 127.0.0.1 at 2018-08-23 21:22:18 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [1 times] (16.8ms)
+  Rendered images/index.html.erb within layouts/application (38.8ms)
+Completed 500 Internal Server Error in 113ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `description' for nil:NilClass):
+    1: <%= @image.description %> <br>
+    2: <%= link_to 'Editar', edit_image_path(image) %><br>
+    3: 
+    4: <%= link_to 'Eliminar', image, method: :delete, data:{confirm: 'Esta seguro que desea eliminar esta imagen.' } %>
+  
+app/views/images/_image.html.erb:1:in `_app_views_images__image_html_erb___1028521151_94709796'
+app/views/images/index.html.erb:1:in `_app_views_images_index_html_erb___659006004_94657872'
+Started GET "/images/" for 127.0.0.1 at 2018-08-23 21:23:32 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.8ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [1 times] (1.0ms)
+  Rendered collection of images/_image.html.erb [1 times] (0.0ms)
+  Rendered images/index.html.erb within layouts/application (41.7ms)
+Completed 200 OK in 210ms (Views: 187.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/images/1/edit" for 127.0.0.1 at 2018-08-23 21:25:01 -0500
+Processing by ImagesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering images/edit.html.erb within layouts/application
+  Rendered images/_form.html.erb (0.0ms)
+  Rendered images/edit.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 175ms (Views: 153.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/1/edit" for 127.0.0.1 at 2018-08-23 21:25:07 -0500
+Processing by ImagesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering images/edit.html.erb within layouts/application
+  Rendered images/_form.html.erb (1.0ms)
+  Rendered images/edit.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 183ms (Views: 160.6ms | ActiveRecord: 0.0ms)
+
+
