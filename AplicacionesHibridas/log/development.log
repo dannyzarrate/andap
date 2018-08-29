@@ -454,3 +454,384 @@ Processing by ImagesController#edit as HTML
 Completed 200 OK in 183ms (Views: 160.6ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (140.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (210.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3465197453660230470)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20180815013044)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (187.0ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "body" text, "author" character varying, "publication_date" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (20.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180815013044"]]
+  [1m[35m (24.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImages (20180824000010)
+  [1m[35m (47.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.7ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "description" character varying, "likes_counter" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180824000010"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (90.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-08-28 23:45:52.869356"], ["updated_at", "2018-08-28 23:45:52.869356"]]
+  [1m[35m (9.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(3465197453660230470)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/images/new" for 127.0.0.1 at 2018-08-28 18:59:46 -0500
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (35.0ms)
+  Rendered images/new.html.erb within layouts/application (51.0ms)
+Started GET "/images/new" for 127.0.0.1 at 2018-08-28 18:59:57 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (2.0ms)
+  Rendered images/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 19870ms (Views: 19832.4ms | ActiveRecord: 6.0ms)
+
+
+Completed 200 OK in 34976ms (Views: 34961.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 19:04:34 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered images/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 156ms (Views: 141.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 19:05:45 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered images/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 146ms (Views: 133.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 19:06:27 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered images/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 134ms (Views: 121.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 19:06:28 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered images/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 131ms (Views: 118.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 19:07:35 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered images/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 154ms (Views: 138.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2018-08-28 19:07:44 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (1.0ms)
+  Rendered images/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 140ms (Views: 127.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-08-28 19:07:50 -0500
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"07YZz3tHYh306plEXAQn9Q7kDtBp59I0qyyeHUz7iHmztFADihGXOoa0pMh4iYyF1aqx2PJjfTa8UNy4DEtFhg==", "image"=>{"description"=>"sjdfkwe"}, "commit"=>"Enviar"}
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (9.9ms)[0m  [1m[32mINSERT INTO "images" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "sjdfkwe"], ["created_at", "2018-08-29 00:07:50.880147"], ["updated_at", "2018-08-29 00:07:50.880147"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/images/1
+Completed 302 Found in 21ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/images/1" for 127.0.0.1 at 2018-08-28 19:07:50 -0500
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering images/show.html.erb within layouts/application
+  Rendered images/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 142ms (Views: 119.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 19:07:55 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [1 times] (1.0ms)
+  Rendered collection of images/_image.html.erb [1 times] (1.0ms)
+  Rendered images/index.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 198ms (Views: 182.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 19:33:34 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [1 times] (1.0ms)
+  Rendered images/index.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 170ms (Views: 157.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/1/edit" for 127.0.0.1 at 2018-08-28 19:37:56 -0500
+Processing by ImagesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering images/edit.html.erb within layouts/application
+  Rendered images/_form.html.erb (2.0ms)
+  Rendered images/edit.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 153ms (Views: 135.5ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/images/1" for 127.0.0.1 at 2018-08-28 19:38:01 -0500
+Processing by ImagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oZWcILh3MWWKUudKIWL6MfUxNRft+cEDchcM5bufieVxKX0+5Fgy6ru8oaGkd7q4RxPfyPKx94bfHBgBY82NAQ==", "image"=>{"description"=>"jmjpo´{p"}, "commit"=>"Enviar", "id"=>"1"}
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (40.0ms)[0m  [1m[33mUPDATE "images" SET "description" = $1, "updated_at" = $2 WHERE "images"."id" = $3[0m  [["description", "jmjpo´{p"], ["updated_at", "2018-08-29 00:38:01.195354"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/images/1
+Completed 302 Found in 51ms (ActiveRecord: 41.0ms)
+
+
+Started GET "/images/1" for 127.0.0.1 at 2018-08-28 19:38:01 -0500
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering images/show.html.erb within layouts/application
+  Rendered images/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 135ms (Views: 119.7ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/images/1" for 127.0.0.1 at 2018-08-28 19:38:11 -0500
+Processing by ImagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aJr4sYclDJSDxqeB5SW5uKtxm5GGc5yg6FbaQsd+IvcImLF9dnP5s/GYmg3BqBLIcD8kmR33M6L/Kpjnh87vCA==", "image"=>{"description"=>"oiojml"}, "commit"=>"Enviar", "id"=>"1"}
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "images" SET "description" = $1, "updated_at" = $2 WHERE "images"."id" = $3[0m  [["description", "oiojml"], ["updated_at", "2018-08-29 00:38:11.500252"], ["id", 1]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/images/1
+Completed 302 Found in 11ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/images/1" for 127.0.0.1 at 2018-08-28 19:38:11 -0500
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering images/show.html.erb within layouts/application
+  Rendered images/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 131ms (Views: 116.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/" for 127.0.0.1 at 2018-08-28 19:38:17 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [1 times] (1.0ms)
+  Rendered images/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 148ms (Views: 134.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2018-08-28 19:40:02 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (1.0ms)
+  Rendered images/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 140ms (Views: 127.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3465197453660230470)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPictureToImages (20180829015636)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (24.0ms)[0m  [1m[35mALTER TABLE "images" ADD "picture" character varying[0m
+  [1m[35mSQL (12.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180829015636"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(3465197453660230470)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/images" for 127.0.0.1 at 2018-08-28 21:07:46 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (2.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [1 times] (1460.6ms)
+  Rendered images/index.html.erb within layouts/application (1549.7ms)
+Completed 200 OK in 1841ms (Views: 1798.7ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2018-08-28 21:09:17 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (71.0ms)
+  Rendered images/new.html.erb within layouts/application (84.1ms)
+Completed 200 OK in 250ms (Views: 236.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-08-28 21:09:50 -0500
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X/REK3/C9qXZ7P6izxq9H29nsfz+0y9NYeKN96DKydc/9g3njpQDgquywy7rlxZvtCkO9GVXgE92ns9S4HoEKA==", "image"=>{"description"=>"", "picture"=>#<ActionDispatch::Http::UploadedFile:0x9a1a048 @tempfile=#<Tempfile:C:/Users/ANDAP/AppData/Local/Temp/RackMultipart20180828-4260-1n93rel.jpeg>, @original_filename="fn-prueba.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[picture]\"; filename=\"fn-prueba.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Enviar"}
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/images
+Completed 302 Found in 76ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 21:09:50 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [1 times] (2.0ms)
+  Rendered images/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 169ms (Views: 156.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2018-08-28 21:10:06 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (2.0ms)
+  Rendered images/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 176ms (Views: 162.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-08-28 21:10:16 -0500
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VLAYwy84MlOE3aHBhX4ZDO4T9TTF3UQ7gi0jEMF5qQM0slEP3m7HdPaDnE2h87J8NV1KPF5Z6zmVUWG1gclk/A==", "image"=>{"description"=>"sokfgpmaw", "picture"=>#<ActionDispatch::Http::UploadedFile:0xb8d6598 @tempfile=#<Tempfile:C:/Users/ANDAP/AppData/Local/Temp/RackMultipart20180828-4260-q3lvid.jpeg>, @original_filename="fn-prueba.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[picture]\"; filename=\"fn-prueba.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Enviar"}
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/images
+Completed 302 Found in 34ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 21:10:16 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [1 times] (1.0ms)
+  Rendered images/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 158ms (Views: 145.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2018-08-28 21:10:24 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (2.0ms)
+  Rendered images/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 180ms (Views: 167.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-08-28 21:10:30 -0500
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"orqNW5ZbPiPPJhf96MwfUED4jAvEvDWQyVce/zVC6N3CuMSXZw3LBL14KnHMQbQgm7YzA184mpLeK1xadfIlIg==", "image"=>{"description"=>"", "picture"=>#<ActionDispatch::Http::UploadedFile:0xc9724e0 @tempfile=#<Tempfile:C:/Users/ANDAP/AppData/Local/Temp/RackMultipart20180828-4260-1otk9dj.jpeg>, @original_filename="fn-prueba.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[picture]\"; filename=\"fn-prueba.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Enviar"}
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/images
+Completed 302 Found in 39ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/images" for 127.0.0.1 at 2018-08-28 21:10:31 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (1.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [1 times] (1.0ms)
+  Rendered images/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 163ms (Views: 148.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2018-08-28 21:10:37 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (2.0ms)
+  Rendered images/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 160ms (Views: 144.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-08-28 21:10:42 -0500
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YZyOreb7H6ctaIyx9d92LV/Vs1+SPbf+wOvUKw7fBa8BnsdhF63qgF82sT3RUt1dhJsMVwm5GPzXl5aOTm/IUA==", "image"=>{"description"=>"kajdpfk"}, "commit"=>"Enviar"}
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (35.0ms)[0m  [1m[32mINSERT INTO "images" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "kajdpfk"], ["created_at", "2018-08-29 02:10:42.672841"], ["updated_at", "2018-08-29 02:10:42.672841"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/images/2
+Completed 302 Found in 47ms (ActiveRecord: 38.0ms)
+
+
+Started GET "/images/2" for 127.0.0.1 at 2018-08-28 21:10:42 -0500
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering images/show.html.erb within layouts/application
+  Rendered images/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 176ms (Views: 140.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/" for 127.0.0.1 at 2018-08-28 21:10:47 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [2 times] (2.0ms)
+  Rendered images/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 134ms (Views: 120.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/" for 127.0.0.1 at 2018-08-28 21:16:33 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [2 times] (2.0ms)
+  Rendered images/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 152ms (Views: 139.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2018-08-28 21:16:36 -0500
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.erb within layouts/application
+  Rendered images/_form.html.erb (0.0ms)
+  Rendered images/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 172ms (Views: 157.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-08-28 21:16:43 -0500
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zuV8VB3TPGewvnuRLdmh0iS4uDhfXjU8Uhn4lpbHWr+u5zWY7IXJQMLgRh0JVAqi//YHMMTamj5FZboz1neXQA==", "image"=>{"description"=>"kajdpfk"}, "commit"=>"Enviar"}
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "images" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "kajdpfk"], ["created_at", "2018-08-29 02:16:43.776451"], ["updated_at", "2018-08-29 02:16:43.776451"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/images/3
+Completed 302 Found in 16ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/images/3" for 127.0.0.1 at 2018-08-28 21:16:43 -0500
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mImage Load (1.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering images/show.html.erb within layouts/application
+  Rendered images/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 172ms (Views: 156.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/images/" for 127.0.0.1 at 2018-08-28 21:16:47 -0500
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.erb within layouts/application
+  [1m[36mImage Load (0.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  Rendered collection of images/_image.html.erb [3 times] (2.0ms)
+  Rendered images/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 136ms (Views: 124.0ms | ActiveRecord: 0.0ms)
+
+
